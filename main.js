@@ -22,20 +22,20 @@ const defaultHeaders = {
 let REF_CODE;
 try {
     REF_CODE = fs.readFileSync('code.txt', 'utf8').trim();
-    // Validasi format kode referral
-    if (!/^[a-zA-Z0-9]{15}$/.test(REF_CODE)) {
-        logError('Invalid referral code format in code.txt');
-        logWarning('Referral code should be exactly 15 alphanumeric characters');
-        process.exit(1);
-    }
-    logSuccess(`Using referral code: ${REF_CODE}`);
+    console.log(`Using referral code: ${REF_CODE}`);
 } catch (error) {
-    logError('Error reading code.txt: ' + error.message);
-    logWarning('Please create a code.txt file with a valid referral code');
+    console.error('Error reading code.txt:', error.message);
+    console.error('Please create a code.txt file with a valid referral code');
     process.exit(1);
 }
 
 const imageMissions = {
+    "hamster": "92611072-99d6-4d39-ae06-0ef4175c0aea",
+    "cattle": "a78693c5-aae5-4d5c-9e07-f79777cbebbb",
+    "kiwi": "a11b1dd4-316c-4b75-b8f5-0c6aba7876ae",
+    "lemon": "f052e17c-36fe-4a2b-8fc3-272ec0097ffa",
+    "lollipop": "b85fbda3-0bcd-4a1e-bc2e-9e6e0f855eaf"
+};
 
 const missionRewardIds = [
     "3bb23601-b879-42b4-be72-3e175974604b",
